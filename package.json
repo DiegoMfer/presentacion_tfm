@@ -1,0 +1,26 @@
+{
+  "name": "presentacion-tfm",
+  "version": "1.0.0",
+  "description": "Plantilla de presentación TFM con Reveal.js",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "serve": "npx http-server -p 8000",
+    "dev": "npx http-server -p 8000 -o",
+    "build": "echo 'No build process needed for static presentation'",
+    "preview": "npx http-server -p 8000 -o",
+    "stop": "pkill -f 'http-server.*8000' || echo 'No server running on port 8000'"
+  },
+  "keywords": [
+    "reveal.js",
+    "presentation",
+    "tfm",
+    "slides"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

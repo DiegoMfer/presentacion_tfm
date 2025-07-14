@@ -1,0 +1,37 @@
+-- Nombre, Diego Martín Fernández
+
+-- Director, Jose Emilio Labra Gayo
+
+-- Universidad de Oviedo
+
+-- Título, generación de datasets RDF a partir de Shape Expressions (ShEx)
+
+
+-- Partes
+
+1 - Introducción
+-   Qué es RDF
+-   Qué es ShEx
+-   Qué hace el generador de RDF
+
+2 - Estado del Arte
+-   Tipos de generadores de datos sintéticos
+    - Datos reales
+    - Dominio específico
+    - Con un modelado de datos
+        - Con ontologías
+        - Con lenguajes de validación
+
+3 - Algoritmo
+- Paso 1 - Crear un grafo de dependencias
+- Paso 2 - Generar entidades sin relaciones individuales
+- Paso 3 - Generar relaciones entre los nodos
+- Paso 4 - Serialización
+
+4 - Resultados
+- Gráfica con los resultados
+
+5 - Trabajo Futuro 
+- Mejoras de rendimiento en la serialización y parametrización
+- Ampliaciones
+- Usar otros métodos para generar datos RDF

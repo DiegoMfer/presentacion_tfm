@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Presentación TFM</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)">
+                <h1>Generación de datasets RDF a partir de Shape Expressions (ShEx)</h1>
+                <h2>Trabajo de Fin de Máster</h2>
+                <p>
+                    <strong>Autor:</strong> Diego Martín Fernández<br>
+                    <strong>Director:</strong> Jose Emilio Labra Gayo<br>
+                    <strong>Fecha:</strong> Julio 2025
+                </p>
+                <p>Universidad de Oviedo</p>
+            </section>
+
+            <!-- Table of Contents -->
+            <section>
+                <h2>Índice</h2>
+                <ol>
+                    <li>Introducción</li>
+                    <li>Estado del Arte</li>
+                    <li>Algoritmo</li>
+                    <li>Resultados</li>
+                    <li>Trabajo Futuro</li>
+                </ol>
+            </section>
+
+            <!-- Introduction Section -->
+            <section>
+                <section data-background="#f7f7f7">
+                    <h2>1. Introducción</h2>
+                </section>
+
+                <section>
+                    <h3>¿Qué es RDF?</h3>
+                    <p>RDF (Resource Description Framework) es un estándar del W3C para describir recursos en la web de
+                        manera estructurada.</p>
+
+                    <div class="fragment">
+                        <p>Los datos RDF se representan como <strong>tripletas</strong>:</p>
+                        <pre><code>&lt;subject&gt; &lt;predicate&gt; &lt;object&gt;</code></pre>
+                    </div>
+
+                    <div class="fragment">
+                        <p><strong>Ejemplo:</strong></p>
+                        <pre><code>:Alice :email "alice@example.org" .</code></pre>
+                    </div>
+
+                    <div class="fragment">
+                        <p>Esto significa: <em>"Alice tiene un email que es alice@example.org"</em></p>
+                    </div>
+
+
+                </section>
+                <section>
+                    <h3>Ejemplo Completo RDF</h3>
+                    <pre><code class="turtle">@prefix : &lt;http://example.org/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+:alice a :Person ;
+    :name "Alice Smith" ;
+    :birthdate "1990-04-15"^^xsd:date ;
+    :email "alice@example.org" ;
+    :homepage &lt;https://alice.example.org&gt; ;
+    :worksFor :org1 ;
+    :enrolledIn :course1, :course2 .
+
+:org1 a :Organization ;
+    :legalName "Example University" ;
+    :headcount 5000 ;
+    :employs :alice .
+
+:course1 a :Course ;
+    :name "Introduction to Semantic Web" ;
+    :courseCode "SEM101" ;
+    :credits "3.0"^^xsd:decimal ;
+    :taughtBy :bob .
+
+:course2 a :Course ;
+    :name "Linked Data Applications" ;
+    :courseCode "LD202" ;
+    :credits "2.5"^^xsd:decimal ;
+    :taughtBy :carol .
+
+:bob a :Person ;
+    :name "Dr. Bob" ;
+    :email "bob@example.org" .
+
+:carol a :Person ;
+    :name "Prof. Carol" ;
+    :email "carol@example.org" .</code></pre>
+                </section>
+
+                <section>
+                    <h3>Visualización del Grafo RDF</h3>
+                    <img src="img/alice_graph.svg" alt="Grafo RDF de Alice" style="max-width: 100%; height: auto;">
+                </section>
+
+
+                <section>
+                    <h3>¿Qué es ShEx (Shape Expressions)?</h3>
+                          <p>Es un lenguaje para validar la estructura de datos RDF.</p>
+                    <div class="fragment">
+                  
+                        <pre><code class="shex">prefix : &lt;http://example.org/&gt;
+prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+
+:Person {
+    :name       xsd:string ;
+    :birthdate  xsd:date ? ;
+    :email      xsd:string + ;
+    :homepage   xsd:anyURI ? ;
+    :worksFor   @:Organization ? ;
+    :enrolledIn @:Course *
+}
+
+:Course {
+    :name       xsd:string ;
+    :courseCode xsd:string {1} ;
+    :credits    xsd:decimal ;
+    :taughtBy   @:Person {1,5}
+}
+
+:Organization {
+    :legalName  xsd:string ;
+    :department @:Organization * ;
+    :headcount  xsd:integer ? ;
+    :employs    @:Person *
+}</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>¿Qué hace el generador de RDF?</h3>
+                    <img src="img/pipeline.png" alt="pipeline" style="max-width: 100%; height: auto;">
+                </section>
+            </section>
+
+            <!-- State of the Art -->
+            <section>
+                <section data-background="#e8f4f8">
+                    <h2>2. Estado del Arte</h2>
+                </section>
+
+                <section>
+                    <h3>Datos Reales</h3>
+                </section>
+
+                <section>
+                    <h3>Dominio Específico</h3>
+                </section>
+
+                <section>
+                    <h3>Con un modelado de datos</h3>
+                    <h4>Con Ontologías</h4>
+                </section>
+
+                <section>
+                    <h3>Con lenguajes de validación</h3>
+                </section>
+            </section>
+
+            <!-- Algorithm Section -->
+            <section>
+                <section data-background="#f0f8e8">
+                    <h2>3. Algoritmo</h2>
+                </section>
+
+                <section>
+                    <h3>Paso 1: Crear un grafo de dependencias</h3>
+                </section>
+
+                <section>
+                    <h3>Paso 2: Generar entidades sin relaciones individuales</h3>
+                </section>
+
+                <section>
+                    <h3>Paso 3: Generar relaciones entre los nodos</h3>
+                </section>
+
+                <section>
+                    <h3>Paso 4: Serialización</h3>
+                </section>
+            </section>
+
+            <!-- Results -->
+            <section>
+                <section data-background="#f8e8f8">
+                    <h2>4. Resultados</h2>
+                </section>
+
+                <section>
+                    <h3>Gráfica con los resultados</h3>
+                </section>
+            </section>
+
+            <!-- Future Work -->
+            <section>
+                <section data-background="#f0e8f8">
+                    <h2>5. Trabajo Futuro</h2>
+                </section>
+
+                <section>
+                    <h3>Mejoras de rendimiento en la serialización y parametrización</h3>
+                </section>
+
+                <section>
+                    <h3>Ampliaciones</h3>
+                </section>
+
+                <section>
+                    <h3>Usar otros métodos para generar datos RDF</h3>
+                </section>
+            </section>
+
+
+
+            <!-- Thank You Slide -->
+            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)">
+                <h1>¡Gracias!</h1>
+                <h3>¿Preguntas?</h3>
+                <p>
+                    UO276345@uniovi.es<br>
+                    Universidad de Oviedo<br>
+                    Generador RDF con ShEx
+                </p>
+                <p><small>Agradecimientos especiales a Jose Emilio Labra Gayo por su dirección y apoyo</small></p>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
+
+    <script>
+        // Initialize Reveal.js
+        Reveal.initialize({
+            hash: true,
+
+            // Display presentation progress bar
+            progress: true,
+
+            // Display slide numbers
+            slideNumber: 'c/t',
+
+            // Add the current slide number to the URL hash
+            hash: true,
+
+            // Enable keyboard shortcuts for navigation
+            keyboard: true,
+
+            // Enable touch navigation on mobile devices
+            touch: true,
+
+            // Enable speaker notes
+            showNotes: false,
+
+            // Transition style
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Transition speed
+            transitionSpeed: 'default', // default/fast/slow
+
+            // Transition style for full page slide backgrounds
+            backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+            // Enable PDF export
+            pdfMaxPagesPerSlide: 1,
+
+            // Math plugin configuration
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+            },
+
+            // Load plugins
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealNotes,
+                RevealMath.KaTeX,
+                RevealZoom,
+                RevealSearch
+            ]
+        });
+
+        // Custom keyboard shortcuts
+        Reveal.addKeyBinding({ keyCode: 82, key: 'R', description: 'Reset to first slide' }, function () {
+            Reveal.slide(0);
+        });
+
+        // Add custom event listeners
+        Reveal.on('slidechanged', event => {
+            // Custom logic when slide changes
+            console.log('Slide changed to:', event.indexh);
+        });
+    </script>
+</body>
+
+</html>
