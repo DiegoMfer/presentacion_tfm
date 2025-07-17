@@ -249,8 +249,21 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
                 <section>
                     <h3>RDFGraphGen</h3>
-                    <o</o>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="img/pipeline_rdfGraphGen.png" alt="Tab2KG Architecture" style="max-width: 80%; height: auto;">
+                    </div>
 
+                    <div style=" left: 20px; right: 20px; font-size: 0.6em; color: #666;">
+                        <p><strong>Referencia:</strong> Jovanovic, M., Vecovska, M., Jakubowski, M., & Hose, K. (2024). RDFGraphGen: An RDF Graph Generator based on SHACL Shapes. <em>arXiv preprint</em>, arXiv:2407.17941</p>
+                    </div>
+
+                </section>
+
+                <section>
+                    <h3>Comparación de Lenguajes de Validación</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="/img/owl_shacl_shex.svg" alt="Comparación OWL, SHACL y ShEx" style="max-width: 90%; height: auto;">
+                    </div>
                 </section>
             </section>
 
@@ -262,18 +275,32 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
                 <section>
                     <h3>Paso 1: Crear un grafo de dependencias</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="/img/grafo_dependencias.png" alt="Grafo de Dependencias" style="max-width: 85%; height: auto;">
+                    </div>
                 </section>
 
                 <section>
                     <h3>Paso 2: Generar entidades sin relaciones individuales</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="/img/paso2.png" alt="Paso 2" style="max-width: 85%; height: auto;">
+                    </div>
                 </section>
 
                 <section>
                     <h3>Paso 3: Generar relaciones entre los nodos</h3>
+                     <div style="text-align: center; margin: 20px 0;">
+                        <img src="/img/paso3.png" alt="Paso 3" style="max-width: 85%; height: auto;">
+                    </div>
                 </section>
 
                 <section>
                     <h3>Paso 4: Serialización</h3>
+                    <ul>
+                        <li>El grafo resultante se serializa en formato RDF utilizando el formato Turtle</li>
+                        <li>Hay un cuello de botella que se puede parametrizar</li>
+                        <li>Esto nos permite que en un futuro se pueda enviar datos a un endpoint SPARQL, en vez de un archivo</li>
+                    </ul>
                 </section>
             </section>
 
@@ -284,7 +311,10 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
                 </section>
 
                 <section>
-                    <h3>Gráfica con los resultados</h3>
+                
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="img/throughput_boxplot.png" alt="Gráfica de Resultados - Throughput" style="max-width: 90%; height: auto;">
+                    </div>
                 </section>
             </section>
 
@@ -295,16 +325,16 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
                 </section>
 
                 <section>
-                    <h3>Mejoras de rendimiento en la serialización y parametrización</h3>
+                    <h3>Mejoras</h3>
+                    <ul>
+                        <li class="fragment">Paralelización de operaciones</li>
+                        <li class="fragment">Optimización de memoria y manejo de grafos grandes</li>
+                        <li class="fragment">Integración con otras herramientas</li>
+                        <li class="fragment">Generación basada en IA generativa</li>
+                    </ul>
                 </section>
 
-                <section>
-                    <h3>Ampliaciones</h3>
-                </section>
-
-                <section>
-                    <h3>Usar otros métodos para generar datos RDF</h3>
-                </section>
+                
             </section>
 
 
