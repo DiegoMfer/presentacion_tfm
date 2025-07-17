@@ -26,27 +26,57 @@
         <div class="slides">
 
             <!-- Title Slide -->
-            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)">
-                <h1>Generación de datasets RDF a partir de Shape Expressions (ShEx)</h1>
-                <h2>Trabajo de Fin de Máster</h2>
-                <p>
-                    <strong>Autor:</strong> Diego Martín Fernández<br>
-                    <strong>Director:</strong> Jose Emilio Labra Gayo<br>
-                    <strong>Fecha:</strong> Julio 2025
-                </p>
-                <p>Universidad de Oviedo</p>
+            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)" class="title-slide">
+                <div class="university-logo">
+                    <i class="fas fa-university"></i>
+                    <p>Universidad de Oviedo</p>
+                </div>
+                <h1 class="title">Generación de datasets RDF a partir de Shape Expressions (ShEx)</h1>
+                <h2 class="subtitle">Trabajo de Fin de Máster</h2>
+                <div class="author">
+                    <p><i class="fas fa-user"></i> <strong>Autor:</strong> Diego Martín Fernández</p>
+                    <p><i class="fas fa-user-tie"></i> <strong>Director:</strong> Jose Emilio Labra Gayo</p>
+                    <p><i class="fas fa-calendar"></i> <strong>Fecha:</strong> Julio 2025</p>
+                </div>
+                <div style="margin-top: 1.5em;">
+                    <i class="fas fa-code" style="font-size: 1.5em; margin-right: 0.5em;"></i>
+                    <i class="fas fa-database" style="font-size: 1.5em; margin-right: 0.5em;"></i>
+                    <i class="fas fa-network-wired" style="font-size: 1.5em;"></i>
+                </div>
             </section>
 
             <!-- Table of Contents -->
-            <section>
-                <h2>Índice</h2>
-                <ol>
-                    <li>Introducción</li>
-                    <li>Estado del Arte</li>
-                    <li>Algoritmo</li>
-                    <li>Resultados</li>
-                    <li>Trabajo Futuro</li>
-                </ol>
+            <section data-background="#f8f9fa">
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1.5em;">
+                    <i class="fas fa-list-ol" style="font-size: 2em; color: #667eea; margin-right: 0.5em;"></i>
+                    <h2 style="margin: 0;">Índice</h2>
+                </div>
+                <div class="toc">
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8em; padding: 0.8em; border-left: 4px solid #667eea; background: rgba(102, 126, 234, 0.1); border-radius: 6px;">
+                        <i class="fas fa-info-circle" style="color: #667eea; margin-right: 0.8em; font-size: 1.2em;"></i>
+                        <span style="font-size: 1.1em; font-weight: 500;">1. Introducción</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8em; padding: 0.8em; border-left: 4px solid #28a745; background: rgba(40, 167, 69, 0.1); border-radius: 6px;">
+                        <i class="fas fa-search" style="color: #28a745; margin-right: 0.8em; font-size: 1.2em;"></i>
+                        <span style="font-size: 1.1em; font-weight: 500;">2. Estado del Arte</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8em; padding: 0.8em; border-left: 4px solid #ffc107; background: rgba(255, 193, 7, 0.1); border-radius: 6px;">
+                        <i class="fas fa-cogs" style="color: #ffc107; margin-right: 0.8em; font-size: 1.2em;"></i>
+                        <span style="font-size: 1.1em; font-weight: 500;">3. Algoritmo</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8em; padding: 0.8em; border-left: 4px solid #17a2b8; background: rgba(23, 162, 184, 0.1); border-radius: 6px;">
+                        <i class="fas fa-chart-bar" style="color: #17a2b8; margin-right: 0.8em; font-size: 1.2em;"></i>
+                        <span style="font-size: 1.1em; font-weight: 500;">4. Resultados</span>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 0.8em; padding: 0.8em; border-left: 4px solid #764ba2; background: rgba(118, 75, 162, 0.1); border-radius: 6px;">
+                        <i class="fas fa-rocket" style="color: #764ba2; margin-right: 0.8em; font-size: 1.2em;"></i>
+                        <span style="font-size: 1.1em; font-weight: 500;">5. Trabajo Futuro</span>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2em; opacity: 0.7;">
+                    <i class="fas fa-arrow-right" style="color: #667eea; margin-right: 0.5em;"></i>
+                    <span style="font-style: italic;">Navegación: Teclas de flecha o click</span>
+                </div>
             </section>
 
             <!-- Introduction Section -->
@@ -340,15 +370,48 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 
 
             <!-- Thank You Slide -->
-            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)">
-                <h1>¡Gracias!</h1>
-                <h3>¿Preguntas?</h3>
-                <p>
-                    UO276345@uniovi.es<br>
-                    Universidad de Oviedo<br>
-                    Generador RDF con ShEx
-                </p>
-                <p><small>Agradecimientos especiales a Jose Emilio Labra Gayo por su dirección y apoyo</small></p>
+            <section data-background-gradient="linear-gradient(45deg, #667eea 0%, #764ba2 100%)" class="thank-you">
+                <div style="text-align: center;">
+                    <div style="margin-bottom: 1em;">
+                        <i class="fas fa-heart" style="font-size: 2em; color: #ff6b6b; animation: pulse 2s ease-in-out infinite;"></i>
+                    </div>
+                    <h1 style="font-size: 2.5em; margin-bottom: 0.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">¡Gracias!</h1>
+                    
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 1.5em 0;">
+                        <i class="fas fa-question-circle" style="font-size: 1.5em; margin-right: 0.5em; color: #ffd700;"></i>
+                        <h3 style="margin: 0; font-size: 1.5em;">¿Preguntas?</h3>
+                    </div>
+                    
+                    <div class="contact" style="background: rgba(255,255,255,0.1); padding: 1.5em; border-radius: 10px; margin: 2em auto; max-width: 400px; backdrop-filter: blur(10px);">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.8em;">
+                            <i class="fas fa-envelope" style="margin-right: 0.5em; width: 20px;"></i>
+                            <span>UO276345@uniovi.es</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.8em;">
+                            <i class="fas fa-university" style="margin-right: 0.5em; width: 20px;"></i>
+                            <span>Universidad de Oviedo</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-project-diagram" style="margin-right: 0.5em; width: 20px;"></i>
+                            <span>Generador RDF con ShEx</span>
+                        </div>
+                    </div>
+                    
+                    <div class="acknowledgments" style="margin-top: 2em; padding-top: 1.5em; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.5em;">
+                            <i class="fas fa-star" style="font-size: 1.2em; margin-right: 0.5em; color: #ffd700;"></i>
+                            <span style="font-style: italic;">Agradecimientos especiales</span>
+                        </div>
+                        <p style="margin: 0.5em 0; font-weight: 500;">Jose Emilio Labra Gayo</p>
+                        <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">Por su dirección, apoyo y guía constante</p>
+                    </div>
+                    
+                    <div style="margin-top: 2em;">
+                        <i class="fas fa-code" style="font-size: 1.5em; margin-right: 0.5em; opacity: 0.7;"></i>
+                        <i class="fas fa-database" style="font-size: 1.5em; margin-right: 0.5em; opacity: 0.7;"></i>
+                        <i class="fas fa-network-wired" style="font-size: 1.5em; opacity: 0.7;"></i>
+                    </div>
+                </div>
             </section>
 
         </div>
