@@ -167,20 +167,90 @@ prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
                 </section>
 
                 <section>
-                    <h3>Datos Reales</h3>
+                    <h3>Partiendo de Datos Existentes</h3>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="img/tab2kg_title.png" alt="Tab2KG Architecture" style="max-width: 80%; height: auto;">
+                    </div>
+
+                    <div style=" left: 20px; right: 20px; font-size: 0.6em; color: #666;">
+                        <p><strong>Referencia:</strong> Gottschalk, S., & Demidova, E. (2022). Tab2KG: Semantic table interpretation with lightweight semantic profiles. <em>Semantic Web</em>, DOI: 10.3233/SW-222993</p>
+                    </div>
+                </section>
+
+                <section>
+                    <img src="img/tab2kg_diagram.png" alt="Tab2KG Architecture" style="max-width: 100%; height: auto;">
+                    <div style=" left: 20px; right: 20px; font-size: 0.6em; color: #666;">
+                        <p><strong>Referencia:</strong> Gottschalk, S., & Demidova, E. (2022). Tab2KG: Semantic table interpretation with lightweight semantic profiles. <em>Semantic Web</em>, DOI: 10.3233/SW-222993</p>
+                    </div>
                 </section>
 
                 <section>
                     <h3>Dominio Específico</h3>
+                    <ul>
+                        <li><strong>Lehigh University Benchmark (LUBM)</strong> - Ontología de Universidades</li>
+                        <li><strong>Berlin SPARQL Benchmark (BSBM)</strong> - Ontología de Comercio Electrónico</li>
+                        <li><strong>PoDiGG</strong> - Pensado para el dominio de información geoespacial</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>LUBM - Ontología Universitaria</h3>
+                    <pre><code class="xml">&lt;?xml version="1.0"?&gt;
+&lt;rdf:RDF xmlns="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xml:base="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;
+
+&lt;owl:Ontology rdf:about="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl"/&gt;
+
+&lt;!-- Classes --&gt;
+&lt;owl:Class rdf:ID="Professor"/&gt;
+&lt;owl:Class rdf:ID="FullProfessor"&gt;
+    &lt;rdfs:subClassOf rdf:resource="#Professor"/&gt;
+&lt;/owl:Class&gt;
+&lt;owl:Class rdf:ID="AssociateProfessor"&gt;
+    &lt;rdfs:subClassOf rdf:resource="#Professor"/&gt;
+&lt;/owl:Class&gt;
+&lt;owl:Class rdf:ID="Student"/&gt;
+&lt;owl:Class rdf:ID="GraduateStudent"&gt;
+    &lt;rdfs:subClassOf rdf:resource="#Student"/&gt;
+&lt;/owl:Class&gt;
+&lt;owl:Class rdf:ID="Course"/&gt;
+&lt;owl:Class rdf:ID="Department"/&gt;
+&lt;owl:Class rdf:ID="University"/&gt;
+
+&lt;!-- Object Properties --&gt;
+&lt;owl:ObjectProperty rdf:ID="takesCourse"&gt;
+    &lt;rdfs:domain rdf:resource="#Student"/&gt;
+    &lt;rdfs:range rdf:resource="#Course"/&gt;
+&lt;/owl:ObjectProperty&gt;
+&lt;owl:ObjectProperty rdf:ID="teaches"&gt;
+    &lt;rdfs:domain rdf:resource="#Professor"/&gt;
+    &lt;rdfs:range rdf:resource="#Course"/&gt;
+&lt;/owl:ObjectProperty&gt;
+&lt;owl:ObjectProperty rdf:ID="worksFor"&gt;
+    &lt;rdfs:domain rdf:resource="#Employee"/&gt;
+    &lt;rdfs:range rdf:resource="#Department"/&gt;
+&lt;/owl:ObjectProperty&gt;
+
+&lt;/rdf:RDF&gt;</code></pre>
                 </section>
 
                 <section>
                     <h3>Con un modelado de datos</h3>
-                    <h4>Con Ontologías</h4>
+                    <ul>
+                        <li><strong>Con DSL (Domain Specific Language):</strong> GRR (Graph Randomizer and Rewriter)</li>
+                        <li><strong>Con ontologías:</strong> GAIA</li>
+                        <li><strong>Con lenguajes de validación (ShEx & SHACL):</strong> RDFGraphGen</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h3>Con lenguajes de validación</h3>
+                    <h3>RDFGraphGen</h3>
+                    <o</o>
+
                 </section>
             </section>
 
